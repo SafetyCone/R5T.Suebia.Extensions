@@ -10,9 +10,9 @@ namespace R5T.Suebia.Extensions
     {
         public static IConfigurationBuilder AddJsonSecretsFilePath(this IConfigurationBuilder configurationBuilder, IServiceProvider configurationServiceProvider, string fileName)
         {
-            var secretsFilePathProvider = configurationServiceProvider.GetRequiredService<ISecretsFilePathProvider>();
+            var secretsDirectoryFilePathProvider = configurationServiceProvider.GetRequiredService<ISecretsDirectoryFilePathProvider>();
 
-            var filePath = secretsFilePathProvider.GetSecretsFilePath(fileName);
+            var filePath = secretsDirectoryFilePathProvider.GetSecretsFilePath(fileName);
 
             configurationBuilder.AddJsonFile(filePath);
 
